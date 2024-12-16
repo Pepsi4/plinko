@@ -8,10 +8,16 @@ public class PlinkoGridGenerator : MonoBehaviour
     [SerializeField] private int rows = 14;
     [SerializeField] private float xSpacing = 0.5f;
     [SerializeField] private float ySpacing = 0.5f;
+    [SerializeField] private int startFromRow = 2;
+
+    private void Start()
+    {
+        GenerateGrid();
+    }
 
     public void GenerateGrid()
     {
-        for (int row = 0; row < rows; row++)
+        for (int row = startFromRow; row < rows; row++)
         {
             for (int col = 0; col <= row; col++)
             {

@@ -1,23 +1,15 @@
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class BalanceManager : MonoBehaviour
 {
-    public event Action OnBalanceDepleted;
+    public Action OnBalanceDepleted;
+    private float balance;
 
-    public int Balance { get; private set; }
+    public float Balance => balance;
 
-    public void AddBalance(int amount)
+    public void ChangeBalance(float coefficient)
     {
-        Balance += amount;
-    }
-
-    public void DeductBalance(int amount)
-    {
-        Balance -= amount;
-        if (Balance <= 0)
-        {
-            OnBalanceDepleted?.Invoke();
-        }
+        balance *= coefficient;
     }
 }
